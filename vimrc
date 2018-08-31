@@ -9,7 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'majutsushi/tagbar.git'
 
@@ -36,6 +36,15 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 
+Plug 'tpope/vim-fugitive'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+
+Plug 'FooSoft/vim-argwrap'
+
+Plug 'easymotion/vim-easymotion'
+
 " Initialize plugin system
 call plug#end()
 
@@ -43,32 +52,30 @@ let mapleader="\<SPACE>"
 
 nmap <Leader><Leader> <c-^>
 
-
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR><Paste>
 "color dracula
-
 
 let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 
 let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts=1
 set laststatus=2
-
 
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlP<CR>
 
 nnoremap <Leader>fp :Grepper<Space>-query<Space>
 nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
-nnoremap <leader>f* :Grepper -tool ag -cword -noprompt<cr>
+nnoremap <leader>f* :Grepper -tool grep -cword -noprompt<cr>
 
 
 map ` :VimFiler -explorer<CR>
 map ~ :VimFilerCurrentDir -explorer -find<CR>
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 set number
