@@ -7,8 +7,4 @@ pip3 install neovim
 mkdir -p ~/.config ~/.config/nvim
 
 
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
-
-chsh -s /usr/local/bin/zsh
