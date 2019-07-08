@@ -9,74 +9,62 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 " On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-Plug 'majutsushi/tagbar.git'
-
+Plug 'majutsushi/tagbar'
 Plug 'Shougo/unite.vim'
-
-Plug 'dracula/vim'
-
 Plug 'Yggdroot/indentLine'
-
 Plug 'airblade/vim-gitgutter'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
-
 Plug 'mhinz/vim-grepper'
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'w0rp/ale'
-
 Plug 'justinmk/vim-sneak'
-
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
-
 Plug 'tpope/vim-fugitive'
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-
-Plug 'FooSoft/vim-argwrap'
-
-Plug 'easymotion/vim-easymotion'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
 
 let mapleader="\<SPACE>"
 
-nmap <Leader><Leader> <c-^>
+set list
+set listchars=tab:>-,trail:-
 
-nnoremap <Tab> :bnext!<CR>
-nnoremap <S-Tab> :bprev!<CR><Paste>
-"color dracula
-
+" indentLine settings
 let g:indentLine_enabled = 1
-let g:indentLine_char = "⟩"
+let g:indentLine_char = "|"
 
+" airline settings
 let g:airline#extensions#tabline#enabled=1
-" let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts=1
 set laststatus=2
 
-nnoremap <Leader>p :CtrlP<CR>
-nnoremap <Leader>t :CtrlP<CR>
-
-nnoremap <Leader>fp :Grepper<Space>-query<Space>
-nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
-nnoremap <leader>f* :Grepper -tool grep -cword -noprompt<cr>
-
-
+" vimfiler settings
 map ` :VimFiler -explorer<CR>
 map ~ :VimFilerCurrentDir -explorer -find<CR>
 
-" let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" deoplete settings
+let g:deoplete#enable_at_startup = 1
+
+" Grepper setting
+" grep using query
+nnoremap <Leader>fp :Grepper<Space>-query<Space>
+" grep using query in files in vim buffers
+nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
+" grep word under cursor
+nnoremap <leader>f* :Grepper -tool grep -cword -noprompt<cr>
+
+" sneak settings
+let g:sneak#label = 1
+
+" ale settings
+let b:ale_fixers=['black']
+
+colorscheme dracula
 
 set number
 set ic
+set hlsearch
+set tabstop=4 shiftwidth=4 expandtab
