@@ -22,6 +22,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ludovicchabant/vim-gutentags'
 
 " Initialize plugin system
 call plug#end()
@@ -61,6 +63,14 @@ let g:sneak#label = 1
 
 " ale settings
 let b:ale_fixers=['black']
+
+" fzf settings
+set rtp+=/usr/local/opt/fzf
+
+" gutentags settings
+" install universal ctags : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+set statusline+=%{gutentags#statusline()}
+" This will print the string “TAGS” in your status-line when Gutentags is generating things in the background.
 
 colorscheme dracula
 
