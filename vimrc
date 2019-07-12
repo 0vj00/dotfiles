@@ -17,6 +17,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-grepper'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-tag'
+Plug 'Shougo/echodoc.vim'
 Plug 'w0rp/ale'
 Plug 'justinmk/vim-sneak'
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
@@ -24,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'tmhedberg/SimpylFold'
 
 " Initialize plugin system
 call plug#end()
@@ -49,6 +53,7 @@ map ~ :VimFilerCurrentDir -explorer -find<CR>
 
 " deoplete settings
 let g:deoplete#enable_at_startup = 1
+let deoplete#tag#cache_limit_size = 5000000
 
 " Grepper setting
 " grep using query
@@ -63,6 +68,10 @@ let g:sneak#label = 1
 
 " ale settings
 let b:ale_fixers=['black']
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
 " fzf settings
 set rtp+=/usr/local/opt/fzf
@@ -71,6 +80,14 @@ set rtp+=/usr/local/opt/fzf
 " install universal ctags : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 set statusline+=%{gutentags#statusline()}
 " This will print the string “TAGS” in your status-line when Gutentags is generating things in the background.
+
+" echodoc settings
+set noshowmode
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+
+" simpylfold settings
+let g:SimpylFold_docstring_preview = 1
 
 colorscheme dracula
 
