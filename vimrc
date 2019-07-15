@@ -28,6 +28,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tmhedberg/SimpylFold'
+Plug 'ambv/black'
 
 " Initialize plugin system
 call plug#end()
