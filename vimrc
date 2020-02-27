@@ -80,8 +80,10 @@ set rtp+=/usr/local/opt/fzf
 
 " gutentags settings
 " install universal ctags : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-set statusline+=%{gutentags#statusline()}
 " This will print the string “TAGS” in your status-line when Gutentags is generating things in the background.
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_exclude_filetypes = ['js', 'css']
+
 
 " echodoc settings
 set noshowmode
@@ -97,3 +99,5 @@ set number
 set ic
 set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
+set colorcolumn=100
+set cursorline
