@@ -30,6 +30,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'joshdick/onedark.vim'
 
 " Initialize plugin system
 call plug#end()
