@@ -102,3 +102,5 @@ set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
 set colorcolumn=100
 set cursorline
+set showcmd
+set ttyfast
