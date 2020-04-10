@@ -94,7 +94,7 @@ let g:echodoc#type = 'floating'
 " simpylfold settings
 let g:SimpylFold_docstring_preview = 1
 
-colorscheme dracula
+colorscheme onedark
 
 set number
 set ic
